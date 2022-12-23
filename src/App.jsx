@@ -8,14 +8,16 @@ function App() {
   const [metadataContent, setMetadataContent] = useState();
   const [metadataImage, setMetadataImage] = useState();
 
-  useEffect( () => {
-    setTimeout( async () => {
-      const json = await IPFSFetcher.FetchJSON('ipfs://QmNNHx7rpodRYXhKPtP6czFtvzH3xz6hfrecPnKpoDijFk/1')
-      console.log('METADATA', json)
-      setMetadataContent(json);
-      setMetadataImage(json.image);
-    })
+  useEffect( () => { 
+    fetchJSON()
   }, [])
+
+  const fetchJSON = async () => {
+    const json = await IPFSFetcher.FetchJSON('https://ipfs.io/ipfs/QmWXJXRdExse2YHRY21Wvh4pjRxNRQcWVhcKw4DLVnqGqs/8565')
+    console.log('METADATA', json)
+    setMetadataContent(json);
+    setMetadataImage(json.image);
+  }
 
   return (
     <div className="App">
@@ -35,13 +37,13 @@ function App() {
   <div className="card">
     <div><code>{`<IPFSAvatar size={80} radius={80} src="...">`}</code></div>
     <div className="flex-container">
-      <IPFSAvatar size={200} radius={20} src="https://cloudflare-ipfs.com/ipfs/QmZPXo7N2qDMWaCVezr6Mm7FEmxwDitoWkKC3AjELQqS7N"/>
+      <IPFSAvatar size={200} radius={20} src="ipfs://QmW4rFNKTYRFztnD45bSQRJ45XHn81yhkc36vRZoxxYvj2/875"/>
     </div>
   </div>
   <div className="card">
     <div><code>{`<IPFSSquared width={30} height={30} src="..."`}</code></div>
     <div className="flex-container">
-      <IPFSSquared width={200} height={200}  src="https://ipfs.io/ipfs/bafybeibj6pazfaql66giyedx77mzfnnwkhov73vacgiqowpsxwrry4fnxq/1.png"/>
+      <IPFSSquared width={200} height={200}  src="Qme4SpgD8jgNyDo8AUfAsHfWS4qL8du7Vw4J4qzJ3YKS4J"/>
     </div>
     <p>Here some examples loading images from IPFS using fastest gateways successfully connected to your machine.</p>
     <p>Each time you fill a source for the image, it will try to fetch from the 3 faster gateways connected.</p>
