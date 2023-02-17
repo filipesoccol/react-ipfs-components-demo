@@ -8,4 +8,4 @@ ReactDOM
 .createRoot(document.getElementById('app'))
 .render(<App />)
 
-IPFSFetcher.Initialize();
+IPFSFetcher.Initialize({verbose:true});
