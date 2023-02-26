@@ -10,5 +10,5 @@ export default defineConfig({
     },
   },
   plugins: [react()],
-  base: `react-ipfs-components-demo/`,
+  base: `/react-ipfs-components-demo/`,
 })

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import logo from './assets/logo.svg'
-import { IPFSAvatar, IPFSSquared, IPFSFetcher } from 'react-ipfs-components'
+import { IPFSAvatar, IPFSSquared, FetchJSON } from 'react-ipfs-components'
 import './index.css'
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
   }, [])
 
   const fetchJSON = async () => {
-    const json = await IPFSFetcher.FetchJSON('https://ipfs.io/ipfs/QmWXJXRdExse2YHRY21Wvh4pjRxNRQcWVhcKw4DLVnqGqs/8565')
+    const json = await FetchJSON('https://ipfs.io/ipfs/QmWXJXRdExse2YHRY21Wvh4pjRxNRQcWVhcKw4DLVnqGqs/8565')
     console.log('METADATA', json)
     setMetadataContent(json);
     setMetadataImage(json.image);
@@ -37,7 +37,7 @@ function App() {
   <div className="card">
     <div><code>{`<IPFSAvatar size={80} radius={80} src="...">`}</code></div>
     <div className="flex-container">
-      <IPFSAvatar size={200} radius={20} src="ipfs://QmW4rFNKTYRFztnD45bSQRJ45XHn81yhkc36vRZoxxYvj2/875"/>
+      <IPFSAvatar size={200} radius={20} src="ipfs://QmW4rFNKTYRFztnD45bSQRJ45XHn81yhkc36vRZoxxYvj2/199"/>
     </div>
   </div>
   <div className="card">
