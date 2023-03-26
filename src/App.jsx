@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import logo from './assets/logo.svg'
-import { IPFSAvatar, IPFSSquared, FetchJSON } from 'react-ipfs-components'
+import { IPFSAvatar, IPFSImage, IPFSVideo, FetchJSON } from 'react-ipfs-components'
 import './index.css'
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
   }, [])
 
   const fetchJSON = async () => {
-    const json = await FetchJSON('https://ipfs.io/ipfs/QmWXJXRdExse2YHRY21Wvh4pjRxNRQcWVhcKw4DLVnqGqs/8565')
+    const json = await FetchJSON('https://ipfs.io/ipfs/QmWXJXRdExse2YHRY21Wvh4pjRxNRQcWVhcKw4DLVnqGqs/8365')
     console.log('METADATA', json)
     setMetadataContent(json);
     setMetadataImage(json.image);
@@ -37,13 +37,19 @@ function App() {
   <div className="card">
     <div><code>{`<IPFSAvatar size={80} radius={80} src="...">`}</code></div>
     <div className="flex-container">
-      <IPFSAvatar size={200} radius={20} src="ipfs://QmW4rFNKTYRFztnD45bSQRJ45XHn81yhkc36vRZoxxYvj2/199"/>
+      <IPFSAvatar size={200} radius={20} src="ipfs://QmW4rFNKTYRFztnD45bSQRJ45XHn81yhkc36vRZoxxYvj2/193"/>
     </div>
   </div>
   <div className="card">
-    <div><code>{`<IPFSSquared width={30} height={30} src="..."`}</code></div>
+    <div><code>{`<IPFSVideo size={200} radius={200} src="...">`}</code></div>
     <div className="flex-container">
-      <IPFSSquared width={200} height={200}  src="Qme4SpgD8jgNyDo8AUfAsHfWS4qL8du7Vw4J4qzJ3YKS4J"/>
+      <IPFSVideo width={200} heigth={200} src="ipfs://QmX4YgDwbEXbxi4FyCdVjjoAJJ1tEnfRebHgsuN66rhRTP"/>
+    </div>
+  </div>
+  <div className="card">
+    <div><code>{`<IPFSImage width={30} height={30} src="..."`}</code></div>
+    <div className="flex-container">
+      <IPFSImage width={200} height={200}  src="Qme4SpgD8jgNyDo8AUfAsHfWS4qL8du7Vw4J4qzJ3YKS4J"/>
     </div>
     <p>Here some examples loading images from IPFS using fastest gateways successfully connected to your machine.</p>
     <p>Each time you fill a source for the image, it will try to fetch from the 3 faster gateways connected.</p>

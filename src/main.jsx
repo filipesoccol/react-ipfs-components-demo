@@ -8,4 +8,6 @@ ReactDOM
 .createRoot(document.getElementById('app'))
 .render(<App />)
 
-Initialize({verbose:true});
+Initialize({
+    verbose:true
+});
